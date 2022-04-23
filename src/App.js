@@ -5,6 +5,7 @@ import 'antd/lib/row/style/css'
 import 'antd/lib/col/style/css'
 import 'antd/lib/input/style/css'
 import 'antd/lib/button/style/css'
+import { cfg } from './cfg'
 
 function App() {
   const [cardNumber, setCardNumber] = useState('')
@@ -14,7 +15,7 @@ function App() {
 
   const submitForm = async () => {
     try {
-      let response = await fetch('//localhost:8000/pay-handler', {
+      let response = await fetch(cfg.serverRoot + '/' + cfg.paymentEndpoint, {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
